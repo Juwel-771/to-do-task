@@ -7,10 +7,20 @@ const task = [
 ]
 
 
-const ShowTask = ({taskList, setTaskList}) => {
+const ShowTask = ({taskList, setTaskList, task, setTask}) => {
 
     const handleOnClear = ()=> {
         setTaskList([]);
+    }
+
+    const handleOnEdit = (id)=> {
+
+    }
+
+    const handleOnDelete = (id)=> {
+        const updateTaskList = taskList.filter(todos => todos.id !== id);
+        console.log(updateTaskList);
+        setTaskList(updateTaskList)
     }
 
     return (
@@ -24,14 +34,14 @@ const ShowTask = ({taskList, setTaskList}) => {
             </div>
             <ul>
                 {
-                    taskList.map( tasks => 
-                    <li key = {tasks.id} >
+                    taskList.map( todo => 
+                    <li key = {todo.id} >
                         <p>
-                            <span className="name">{tasks.name}</span>
-                            <span className="time">{tasks.time}</span>
+                            <span className="name">{todo.name}</span>
+                            <span className="time">{todo.time}</span>
                         </p>
-                        <i className='bi bi-pencil-square'></i>
-                        <i className='bi bi-trash'></i>
+                        <i onClick={() => handleOnEdit(todo.id)} className='bi bi-pencil-square'></i>
+                        <i onClick={() => handleOnDelete(todo.id)} className='bi bi-trash'></i>
                     </li>
                     )
                 }

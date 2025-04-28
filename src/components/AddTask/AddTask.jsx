@@ -1,17 +1,16 @@
 import React from 'react';
 
-const AddTask = ({taskList, setTaskList}) => {
+const AddTask = ({taskList, setTaskList, task, setTask}) => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
         const date = new Date();
         const newTask = {
-            id: date.getDate(),
+            id: date.getTime(),
             name: e.target.task.value,
             time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`
         }
         setTaskList([...taskList, newTask]);
-        console.log(taskList);
         name: e.target.task.value = " ";
     }
 
