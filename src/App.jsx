@@ -5,13 +5,13 @@ import AddTask from './components/AddTask/AddTask'
 import ShowTask from './components/ShowTask/ShowTask'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [taskList, setTaskList] = useState([]);
 
   return (
     <>
       <Header></Header>
-      <AddTask></AddTask>
-      <ShowTask></ShowTask>
+      <AddTask taskList = {taskList} setTaskList = {setTaskList} ></AddTask>
+      <ShowTask taskList = {taskList} setTaskList = {setTaskList} ></ShowTask>
     </>
   )
 }

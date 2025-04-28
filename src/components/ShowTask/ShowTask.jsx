@@ -7,20 +7,25 @@ const task = [
 ]
 
 
-const ShowTask = () => {
+const ShowTask = ({taskList, setTaskList}) => {
+
+    const handleOnClear = ()=> {
+        setTaskList([]);
+    }
+
     return (
        <section className='showTask'>
             <div className="head">
                 <div>
                     <span className='title' >Task Lis</span>
-                    <span className='count'>0</span>
+                    <span className='count'>{taskList.length}</span>
                 </div>
-                <button className='clearAll'>Clear All</button>
+                <button className='clearAll' onClick={handleOnClear}>Clear All</button>
             </div>
             <ul>
                 {
-                    task.map( tasks => 
-                    <li>
+                    taskList.map( tasks => 
+                    <li key = {tasks.id} >
                         <p>
                             <span className="name">{tasks.name}</span>
                             <span className="time">{tasks.time}</span>
