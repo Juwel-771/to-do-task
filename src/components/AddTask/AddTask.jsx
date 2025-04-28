@@ -2,9 +2,12 @@ import React from 'react';
 
 const AddTask = () => {
     return (
-        <div>
-            <p>Add Task</p>
-        </div>
+       <section className='addTask'>
+            <form>
+                <input type="text" name="task" autoComplete="off" placeholder='Add Task' maxLength="25" />
+                <button type='submit'>Add</button>
+            </form>
+       </section>
     );
 };
 
