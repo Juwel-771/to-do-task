@@ -15,7 +15,7 @@ const AddTask = ({taskList, setTaskList, task, setTask}) => {
             ));
 
             setTaskList(updateTask);
-            name: e.target.task.value = " ";
+            setTask({});
 
         }else {
             
@@ -27,7 +27,7 @@ const AddTask = ({taskList, setTaskList, task, setTask}) => {
             }
 
             setTaskList([...taskList, newTask]);
-            name: e.target.task.value = " ";
+            setTask({});
         }
 
         
@@ -37,7 +37,7 @@ const AddTask = ({taskList, setTaskList, task, setTask}) => {
     return (
        <section className='addTask'>
             <form onSubmit={handleOnSubmit}>
-                <input type="text" name="task" autoComplete="off" value={task.name} placeholder='Add Task' maxLength="25" onChange={e => setTask({...task, name: e.target.value})}/>
+                <input type="text" name="task" autoComplete="off" value={task.name || " "} placeholder='Add Task' maxLength="25" onChange={e => setTask({...task, name: e.target.value})}/>
                 <button type='submit'>{task.name ? "Update" : "Add"}</button>
             </form>
        </section>
