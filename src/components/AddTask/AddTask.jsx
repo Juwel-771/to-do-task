@@ -33,7 +33,6 @@ const AddTask = ({taskList, setTaskList, task, setTask}) => {
         
     }
 
-
     return (
        <section className='addTask'>
             <form onSubmit={handleOnSubmit}>
